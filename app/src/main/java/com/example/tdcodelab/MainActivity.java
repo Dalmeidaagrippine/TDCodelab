@@ -1,10 +1,10 @@
 package com.example.tdcodelab;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,4 +35,20 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new Adapter(input);
         recyclerView.setAdapter(mAdapter);
     }
+
+////    private void makeApiCall() {
+//        Gson gson = new GsonBuilder()
+//                .setLenient()
+//                .create();
+//
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl(BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create(gson))
+//                .build();
+//
+//        GerritAPI gerritAPI = retrofit.create(GerritAPI.class);
+//
+//        Call<List<Change>> call = gerritAPI.loadChanges("status:open");
+//        call.enqueue(this);
+//    }
 }
