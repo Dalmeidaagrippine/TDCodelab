@@ -38,7 +38,13 @@ public class MainActivity extends AppCompatActivity {
 //        mAdapter = new Adapter(input);
 //        recyclerView.setAdapter(mAdapter);
 
+        showList();
+        
 
+
+    }
+
+    private void showList() {
     }
 
 
