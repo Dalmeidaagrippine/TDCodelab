@@ -22,6 +22,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        mAdapter = new Adapter(input);
+//        recyclerView.setAdapter(mAdapter);
+
+    showList()
+
+
+}
+
+    private void showList() {
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -29,17 +39,6 @@ public class MainActivity extends AppCompatActivity {
         List<String> input = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             input.add("Wave" + i);
-        }// define an adapter
-        mAdapter = new Adapter(input);
-        recyclerView.setAdapter(mAdapter);
-
-        showList();
-        
-
-
-    }
-
-    private void showList() {
     }
 
 
