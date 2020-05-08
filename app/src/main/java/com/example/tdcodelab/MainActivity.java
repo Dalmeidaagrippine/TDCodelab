@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String BASE_URL = "https://pokeapi.co/";
 
-    private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showList() {
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
