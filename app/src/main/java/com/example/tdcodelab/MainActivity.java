@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 100; i++) {
             input.add("Wave" + i);
         }
+
         mAdapter = new Adapter(input);
         recyclerView.setAdapter(mAdapter);
 
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         Call<RestPokemonResponse> call = pokeApi.getPokemonResponse();
         call.enqueue(new Callback<RestPokemonResponse>() {
+
             @Override
             public void onResponse(Call<RestPokemonResponse> call, Response<RestPokemonResponse> response) {
                 if(response.isSuccessful() && response.body() != null){
@@ -78,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<RestPokemonResponse> call, Throwable t) {
                 showError();
-
             }
         });
     }
