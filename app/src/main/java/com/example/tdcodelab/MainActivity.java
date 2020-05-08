@@ -32,21 +32,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showList();
         makeApiCall();
     }
 
-    private void showList() {
+    private void showList(List<Pokemon> pokemonList) {
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        List<String> input = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            input.add("Wave" + i);
-        }
 
-        mAdapter = new Adapter(input);
+        mAdapter = new Adapter(pokemonList);
         recyclerView.setAdapter(mAdapter);
 
     }
