@@ -75,7 +75,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             }
         });
 
-        holder.txtFooter.setText("Footer: " + name);
+        holder.txtFooter.setText(CurrentPokemon.getUrl());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
