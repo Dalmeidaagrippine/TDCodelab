@@ -67,7 +67,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final Pokemon CurrentPokemon = values.get(position);
-        holder.txtHeader.setText(name);
+        holder.txtHeader.setText(Cu);
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
