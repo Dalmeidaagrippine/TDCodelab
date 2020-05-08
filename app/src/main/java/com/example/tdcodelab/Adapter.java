@@ -32,7 +32,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         }
     }
 
-    public void add(int position, String item) {
+    public void add(int position,  item) {
         values.add(position, item);
         notifyItemInserted(position);
     }
