@@ -1,6 +1,7 @@
 package com.example.tdcodelab;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -65,17 +66,24 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<RestPokemonResponse>() {
             @Override
             public void onResponse(Call<RestPokemonResponse> call, Response<RestPokemonResponse> response) {
-                if(response.isSuccessful()){
-                    if (response.body() != null) {
-                        List<Pokemon> pokemonList = response.body().getResults();
-                    }
+                if(response.isSuccessful() && response.body() != null){
+                    List<Pokemon> pokemonList = response.body().getResults();
+                    Toast.makeText(getApplicationContext(), "API Success", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    showError();
                 }
             }
 
             @Override
             public void onFailure(Call<RestPokemonResponse> call, Throwable t) {
+                showError();
 
             }
         });
+    }
+
+    private void showError() {
+        Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();
     }
 }
