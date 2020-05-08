@@ -66,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<RestPokemonResponse> call, Response<RestPokemonResponse> response) {
                 if(response.isSuccessful()){
-                    List<Pokemon> pokemonList =
+                    if (response.body() != null) {
+                        List<Pokemon> pokemonList = response.body().getResults();
+                    }
                 }
             }
 
