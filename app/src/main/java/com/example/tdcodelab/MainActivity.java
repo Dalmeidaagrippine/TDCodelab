@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     List<Pokemon> pokemonList = response.body().getResults();
                     Toast.makeText(getApplicationContext(), "API Success", Toast.LENGTH_SHORT).show();
                 }
-                else{
+//                else{
                     showError();
                 }
             }
