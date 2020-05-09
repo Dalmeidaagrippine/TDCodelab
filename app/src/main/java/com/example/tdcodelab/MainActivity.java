@@ -85,10 +85,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void savedList(List<Pokemon> pokemonList) {
+        String jsonString = gson.toJson(pokemonList);
 
-        sharedPreferences
+            sharedPreferences
                 .edit()
-                .putString("cle_string", "monString")
+                .putString("jsonPokemonList", jsonString)
                 .apply();
     }
 
