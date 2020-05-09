@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            @Override
+//            @Override
             public void onFailure(Call<RestPokemonResponse> call, Throwable t) {
                 showError();
             }
