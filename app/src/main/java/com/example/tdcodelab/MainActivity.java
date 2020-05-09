@@ -1,6 +1,7 @@
 package com.example.tdcodelab;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -26,13 +27,18 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private SharedPreferences sharedPreferences;
+    private Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSharedPreferences("application_mobile", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences ("application_mobile", Context.MODE_PRIVATE);
+            gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
         makeApiCall();
     }
@@ -48,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void makeApiCall() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<RestPokemonResponse> call, Response<RestPokemonResponse> response) {
                 if(response.isSuccessful() && response.body() != null){
                     List<Pokemon> pokemonList = response.body().getResults();
+                    savedList(pokemonList);
                     showList(pokemonList);
                 }
                 else{
@@ -78,6 +82,14 @@ public class MainActivity extends AppCompatActivity {
                 showError();
             }
         });
+    }
+
+    private void savedList(List<Pokemon> pokemonList) {
+
+        sharedPreferences
+                .edit()
+                .putString("cle_string", "monString")
+                .apply();
     }
 
     private void showError() {
