@@ -12,4 +12,7 @@ public class Pokemon {
     public String getName() {
         return name;
     }
+
+    public static class Constante {
+    }
 }
