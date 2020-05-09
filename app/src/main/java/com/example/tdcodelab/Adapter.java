@@ -68,6 +68,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         // - replace the contents of the view with that element
         final Pokemon CurrentPokemon = values.get(position);
         holder.txtHeader.setText(CurrentPokemon.getName());
+        holder.txtFooter.setText(CurrentPokemon.getUrl());
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +76,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             }
         });
 
-        holder.txtFooter.setText(CurrentPokemon.getUrl());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
