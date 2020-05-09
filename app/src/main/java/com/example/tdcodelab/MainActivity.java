@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
             sharedPreferences
                 .edit()
-                .putString("jsonPokemonList", jsonString)
+                .putString(Constants.KEY_POKEMON_LIST, jsonString)
                 .apply();
 
         Toast.makeText(getApplicationContext(), "List saved", Toast.LENGTH_SHORT).show();
