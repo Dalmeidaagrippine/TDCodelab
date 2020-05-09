@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Pokemon> getData() {
 
-        String jsonPokemon = sharedPreferences.getString("jsonPokemonList", null);
+        String jsonPokemon = sharedPreferences.getString(Constants.KEY_POKEMON_LIST , null);
 
         if(jsonPokemon == null) {
             return null;
