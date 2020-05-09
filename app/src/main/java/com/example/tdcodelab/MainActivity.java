@@ -40,7 +40,22 @@ public class MainActivity extends AppCompatActivity {
                 .setLenient()
                 .create();
 
-        makeApiCall();
+            List<Pokemon> pokemonList = getData();
+
+            if(pokemonList != null ){
+                showList (pokemonList);
+            }
+            else{
+                makeApiCall();
+        }
+    }
+
+    private List<Pokemon> getData() {
+
+        String jsonPokemon = sharedPreferences.getString("jsonPokemonList", null)
+                .apply();
+
+        String jsonString = gson.toJson(pokemonList);
     }
 
     private void showList(List<Pokemon> pokemonList) {
@@ -91,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
                 .edit()
                 .putString("jsonPokemonList", jsonString)
                 .apply();
+
+        Toast.makeText(getApplicationContext(), "List saved", Toast.LENGTH_SHORT).show();
     }
 
     private void showError() {
