@@ -1,4 +1,4 @@
-package com.example.tdcodelab;
+package com.example.tdcodelab.presentation.view.model;
 
 public class Pokemon {
 
