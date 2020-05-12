@@ -1,6 +1,6 @@
-package com.example.tdcodelab;
+package com.example.tdcodelab.data;
 
-import com.example.tdcodelab.presentation.view.model.RestPokemonResponse;
+import com.example.tdcodelab.presentation.model.RestPokemonResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

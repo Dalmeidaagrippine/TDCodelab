@@ -1,4 +1,4 @@
-package com.example.tdcodelab.presentation.view.model;
+package com.example.tdcodelab.presentation.model;
 
 import java.util.List;
 

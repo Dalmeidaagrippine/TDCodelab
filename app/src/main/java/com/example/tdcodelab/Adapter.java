@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tdcodelab.presentation.view.model.Pokemon;
+import com.example.tdcodelab.presentation.model.Pokemon;
 
 import java.util.List;
 

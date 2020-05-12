@@ -1,4 +1,4 @@
-package com.example.tdcodelab;
+package com.example.tdcodelab.presentation.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,8 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tdcodelab.presentation.view.model.Pokemon;
-import com.example.tdcodelab.presentation.view.model.RestPokemonResponse;
+import com.example.tdcodelab.Adapter;
+import com.example.tdcodelab.Constants;
+import com.example.tdcodelab.R;
+import com.example.tdcodelab.data.PokeApi;
+import com.example.tdcodelab.presentation.model.Pokemon;
+import com.example.tdcodelab.presentation.model.RestPokemonResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
