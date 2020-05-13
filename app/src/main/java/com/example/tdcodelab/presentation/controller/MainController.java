@@ -28,15 +28,15 @@ public class MainController {
     private Gson gson;
     private MainActivity view;
 
+    public MainController(Gson gson, SharedPreferences sharedPreferences){
+        this.gson = gson;
+        this.sharedPreferences = sharedPreferences;
+
+    }
     public MainController() {
     }
 
     public void onStart() {
-        sharedPreferences = getSharedPreferences ("application_mobile", Context.MODE_PRIVATE);
-        gson = new GsonBuilder()
-                
-                .setLenient()
-                .create();
 
         List<Pokemon> pokemonList = getData();
 
@@ -51,7 +51,7 @@ public class MainController {
     private void makeApiCall() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
@@ -65,10 +65,10 @@ public class MainController {
                 if(response.isSuccessful() && response.body() != null){
                     List<Pokemon> pokemonList = response.body().getResults();
                     savedList(pokemonList);
-                    showList(pokemonList);
+                    view.showList(pokemonList);
                 }
                 else{
-                    showError();
+                    view.showError();
                 }
             }
 

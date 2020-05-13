@@ -31,13 +31,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String BASE_URL = "https://pokeapi.co";
-
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private SharedPreferences sharedPreferences;
-    private Gson gson;
     private MainController controller;
 
     @Override
@@ -45,7 +42,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-           controller = new MainController;
+           controller = new MainController{
+            new GsonBuilder()
+                    .setLenient()
+                    .create();
+            getSharedPreferences ("application_mobile", Context.MODE_PRIVATE);
+
+        }
            controller.onStart();
     }
 
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
-    private void showError() {
+    public void showError() {
         Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();
     }
 }
