@@ -1,6 +1,5 @@
 package com.example.tdcodelab.presentation.controller;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
@@ -10,7 +9,6 @@ import com.example.tdcodelab.presentation.model.Pokemon;
 import com.example.tdcodelab.presentation.model.RestPokemonResponse;
 import com.example.tdcodelab.presentation.view.MainActivity;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
@@ -74,7 +72,7 @@ public class MainController {
 
             @Override
             public void onFailure(Call<RestPokemonResponse> call, Throwable t) {
-                showError();
+                view.showError();
             }
         });
     }
@@ -87,7 +85,7 @@ public class MainController {
                 .putString(Constants.KEY_POKEMON_LIST, jsonString)
                 .apply();
 
-        Toast.makeText(getApplicationContext(), "List saved", Toast.LENGTH_SHORT).show();
+        Toast.makeText(view.getApplicationContext(), "List saved", Toast.LENGTH_SHORT).show();
     }
 
     private List<Pokemon> getData() {
