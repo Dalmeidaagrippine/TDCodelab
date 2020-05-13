@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tdcodelab.Adapter;
 import com.example.tdcodelab.Constants;
 import com.example.tdcodelab.R;
 import com.example.tdcodelab.data.PokeApi;

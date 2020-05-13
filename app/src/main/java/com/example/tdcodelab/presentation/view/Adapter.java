@@ -1,4 +1,4 @@
-package com.example.tdcodelab;
+package com.example.tdcodelab.presentation.view;
 
 //package com.vogella.android.recyclerview;
 
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tdcodelab.R;
 import com.example.tdcodelab.presentation.model.Pokemon;
 
 import java.util.List;
