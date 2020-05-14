@@ -26,7 +26,9 @@ public class MainController {
     private Gson gson;
     private MainActivity view;
 
-    public MainController(Gson gson, SharedPreferences sharedPreferences){
+    public MainController(MainActivity mainActivity, Gson gson, SharedPreferences sharedPreferences)
+    {
+        this.view =  mainActivity;
         this.gson = gson;
         this.sharedPreferences = sharedPreferences;
 

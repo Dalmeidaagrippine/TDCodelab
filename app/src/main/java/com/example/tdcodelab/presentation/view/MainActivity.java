@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
            controller = new MainController(
+                   this,
                   new GsonBuilder()
                            .setLenient()
                            .create(),
