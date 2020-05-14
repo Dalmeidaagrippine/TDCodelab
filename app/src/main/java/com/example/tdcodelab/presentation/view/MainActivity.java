@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tdcodelab.R;
+import com.example.tdcodelab.Singletons;
 import com.example.tdcodelab.presentation.controller.MainController;
 import com.example.tdcodelab.presentation.model.Pokemon;
-import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
@@ -30,10 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
            controller = new MainController(
                    this,
-                  new GsonBuilder()
-                           .setLenient()
-                           .create(),
-        getSharedPreferences ("application_mobile", Context.MODE_PRIVATE)
+                   Singletons.getGson(),
+                   getSharedPreferences ("application_mobile", Context.MODE_PRIVATE)
            );
         controller.onStart();
     }

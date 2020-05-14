@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import com.example.tdcodelab.Constants;
-import com.example.tdcodelab.data.PokeApi;
+import com.example.tdcodelab.Singletons;
 import com.example.tdcodelab.presentation.model.Pokemon;
 import com.example.tdcodelab.presentation.model.RestPokemonResponse;
 import com.example.tdcodelab.presentation.view.MainActivity;
@@ -17,8 +17,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainController {
 
@@ -28,7 +26,7 @@ public class MainController {
 
     public MainController(MainActivity mainActivity, Gson gson, SharedPreferences sharedPreferences)
     {
-        this.view =  mainActivity;
+        this.view = mainActivity;
         this.gson = gson;
         this.sharedPreferences = sharedPreferences;
 
@@ -49,15 +47,7 @@ public class MainController {
     }
 
     private void makeApiCall() {
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        PokeApi pokeApi = retrofit.create(PokeApi.class);
-
-        Call<RestPokemonResponse> call = pokeApi.getPokemonResponse();
+        Call<RestPokemonResponse> call = Singletons.getPokeApi().getPokemonResponse();
         call.enqueue(new Callback<RestPokemonResponse>() {
 
             @Override
