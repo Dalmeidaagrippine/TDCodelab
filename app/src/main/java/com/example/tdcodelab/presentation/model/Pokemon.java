@@ -13,6 +13,6 @@ public class Pokemon {
         return name;
     }
 
-    public static class Constante {
+    public static class Constants {
     }
 }

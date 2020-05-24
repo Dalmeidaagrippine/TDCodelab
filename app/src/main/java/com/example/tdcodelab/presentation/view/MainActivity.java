@@ -1,6 +1,7 @@
 package com.example.tdcodelab.presentation.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -42,10 +43,24 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new Adapter(pokemonList);
+        mAdapter = new Adapter(pokemonList, new Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Pokemon item) {
+                navigateToDetails(item);
+            }
+        });
         recyclerView.setAdapter(mAdapter);
     }
 
+    private void navigateToDetails(Pokemon item){
+        Intent intent = new Intent(MainActivity.this, PokemonDetails.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("pokemonName", item.getName());
+        intent.putExtra("pokemonUrl", item.getUrl());
+        MainActivity.this.startActivity(intent);
+
+
+    }
     public void showError() {
         Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();
     }

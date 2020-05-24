@@ -16,6 +16,11 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private List<Pokemon> values;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(Pokemon item);
+    }
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -45,8 +50,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public Adapter(List<Pokemon> myDataset) {
-        values = myDataset;
+
+
+    public Adapter(List<Pokemon> values, OnItemClickListener listener) {
+        this.values = values;
+        this.listener = listener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -70,6 +78,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         final Pokemon CurrentPokemon = values.get(position);
         holder.txtHeader.setText(CurrentPokemon.getName());
         holder.txtFooter.setText(CurrentPokemon.getUrl());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                listener.onItemClick(CurrentPokemon);
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
