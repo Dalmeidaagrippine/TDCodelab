@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("pokemonUrl", item.getUrl());
         MainActivity.this.startActivity(intent);
 
-
     }
     public void showError() {
         Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();

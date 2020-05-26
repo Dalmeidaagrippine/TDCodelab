@@ -39,6 +39,7 @@ public class MainController {
         List<Pokemon> pokemonList = getData();
 
         if(pokemonList != null ){
+            makeApiCall();
             view.showList (pokemonList);
         }
         else{
