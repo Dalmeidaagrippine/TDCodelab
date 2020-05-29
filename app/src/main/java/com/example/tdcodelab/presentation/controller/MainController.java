@@ -95,7 +95,26 @@ public class MainController {
     }
 
     public void onItemClick(Pokemon pokemon){
-
+//        Call<PokemonDetailsResponse> call = Singletons.getPokeApi().getPokemonDetailsRepsonse();
+//        call.enqueue(new Callback<RestPokemonResponse>() {
+//
+//            @Override
+//            public void onResponse(Call<RestPokemonResponse> call, Response<RestPokemonResponse> response) {
+//                if(response.isSuccessful() && response.body() != null){
+//                    List<PokemonDetails> pokemonDetailsList = response.body().getResults();
+//                    savedList(pokemonDetailsList);
+//                    view.showList(pokemonDetailsList);
+//                }
+//                else{
+//                    view.showError();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<RestPokemonResponse> call, Throwable t) {
+//                view.showError();
+//            }
+//        });
      }
      public void onButtonAClick(){
 

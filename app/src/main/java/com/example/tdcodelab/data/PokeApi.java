@@ -1,6 +1,6 @@
 package com.example.tdcodelab.data;
 
-import com.example.tdcodelab.presentation.model.AbilityResponse;
+import com.example.tdcodelab.presentation.model.PokemonDetailsResponse;
 import com.example.tdcodelab.presentation.model.RestPokemonResponse;
 
 import retrofit2.Call;
@@ -11,6 +11,6 @@ public interface PokeApi {
     @GET("api/v2/pokemon?limit=964")
     Call<RestPokemonResponse> getPokemonResponse();
 
-    @GET("/api/v2/pokemon/{id or name}")
-    Call<AbilityResponse> getAbilityResponse();
+    @GET("/api/v2/pokemon/")
+    Call<PokemonDetailsResponse> getPokemonDetailsResponse();
 }

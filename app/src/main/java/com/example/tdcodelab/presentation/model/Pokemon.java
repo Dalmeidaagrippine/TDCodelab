@@ -13,6 +13,5 @@ public class Pokemon {
         return name;
     }
 
-    public static class Constants {
-    }
 }
+

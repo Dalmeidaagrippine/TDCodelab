@@ -2,11 +2,11 @@ package com.example.tdcodelab.presentation.model;
 
 import java.util.List;
 
-public class AbilityResponse {
+public class PokemonDetailsResponse {
 
     private Integer count;
     private String next;
-    private List<Ability> results;
+    private List<PokemonDetails> results;
 
     public Integer getCount() {
         return count;
@@ -16,7 +16,7 @@ public class AbilityResponse {
         return next;
     }
 
-    public List<Ability> getResults() {
+    public List<PokemonDetails> getResults() {
         return results;
     }
 }
