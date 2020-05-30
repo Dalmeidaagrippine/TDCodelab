@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="10dp"
         android:contentDescription="TODO"
-        android:src="@drawable/pokeball" />
+        android:src="@drawable/pokeballll" />
 
     <TextView
         android:id="@+id/secondLine"

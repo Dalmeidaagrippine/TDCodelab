@@ -31,8 +31,12 @@ public class PokemonDetails extends AppCompatActivity {
         Log.d("ID: ", ID);
 
         textPokemonName.setText(nameRecovery);
-        Picasso.get().load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + ID + ".png").into(showPokemonImage);
-
+        Picasso
+                .get()
+                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + ID + ".png")
+                .resize(600,600)
+                .centerCrop()
+                .into(showPokemonImage);
     }
 
     public int getID(String url){
